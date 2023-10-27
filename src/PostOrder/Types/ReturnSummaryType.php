@@ -20,6 +20,7 @@ namespace DTS\eBaySDK\PostOrder\Types;
  * @property \DTS\eBaySDK\PostOrder\Enums\ReturnTypeEnum $currentType
  * @property \DTS\eBaySDK\PostOrder\Enums\DispositionRuleTemplateTypeEnum[] $dispositionRuleTriggered
  * @property \DTS\eBaySDK\PostOrder\Types\EscalationInfoType $escalationInfo
+ * @property string $orderId
  * @property string $returnId
  * @property \DTS\eBaySDK\PostOrder\Types\ReturnPolicyType $returnPolicy
  * @property \DTS\eBaySDK\PostOrder\Types\AvailableOptionType[] $sellerAvailableOptions
@@ -82,6 +83,12 @@ class ReturnSummaryType extends \DTS\eBaySDK\Types\BaseType
             'repeatable' => false,
             'attribute' => false,
             'elementName' => 'escalationInfo'
+        ],
+        'orderId' => [
+            'type' => 'string',
+            'repeatable' => false,
+            'attribute' => false,
+            'elementName' => 'orderId'
         ],
         'returnId' => [
             'type' => 'string',
