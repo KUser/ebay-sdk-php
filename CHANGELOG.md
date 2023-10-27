@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 18.0.4 - 2023-10-27
+
+## Fixes
+
+* Fixed `\DTS\eBaySDK\PostOrder\Types\ReturnSummaryType` - added orderId
+
+## 18.0.3 - 2023-09-14
+
+## Fixes
+
+* Fixed `\DTS\eBaySDK\PostOrder\Types\ItemizedReturnShippingCostType` for PostOrder 'GetReturn' request.
+
 ## 18.0.2 - 2022-01-11
 
 ## Features
