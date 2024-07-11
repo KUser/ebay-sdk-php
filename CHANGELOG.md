@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## 18.0.5 - 2024-07-11
+
+## Fixes
+
+Fixed \DTS\eBaySDK\Marketing\Services\MarketingService::createReportTask
+
+Fixed \DTS\eBaySDK\Marketing\Services\MarketingService::getSpecificReport
+
 ## 18.0.4 - 2023-10-27
 
 ## Fixes

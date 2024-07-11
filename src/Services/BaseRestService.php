@@ -187,6 +187,68 @@ abstract class BaseRestService
     }
 
     /**
+     * Sends an asynchronous API request to fetch report file.
+     *
+     * @param string $name The name of the operation.
+     * @param \DTS\eBaySDK\Types\BaseType $request Request object containing the request information.
+     *
+     * @return \GuzzleHttp\Promise\PromiseInterface A promise that will be resolved with an object created from the JSON response.
+     */
+    protected function callReportFileOperationAsync($name, \DTS\eBaySDK\Types\BaseType $request = null)
+    {
+        $operation = static::$operations[$name];
+
+        $paramValues = [];
+        $requestValues = [];
+
+        if ($request) {
+            $requestArray = $request->toArray();
+            $paramValues = array_intersect_key($requestArray, $operation['params']);
+            $requestValues = array_diff_key($requestArray, $operation['params']);
+        }
+
+        $url = $this->uriResolver->resolve(
+            $this->getUrl(),
+            $this->getConfig('apiVersion'),
+            $operation['resource'],
+            $operation['params'],
+            $paramValues
+        );
+        $method = $operation['method'];
+        $body = $this->buildRequestBody($requestValues);
+        $headers = $this->buildRequestHeaders($body);
+        $responseClass = $operation['responseClass'];
+        $debug = $this->getConfig('debug');
+        $httpHandler = $this->getConfig('httpHandler');
+        $httpOptions = $this->getConfig('httpOptions');
+
+        if ($debug !== false) {
+            $this->debugRequest($url, $headers, $body);
+        }
+
+        $request = new Request($method, $url, $headers, $body);
+
+        return $httpHandler($request, $httpOptions)->then(
+            function (ResponseInterface $res) use ($debug, $responseClass) {
+                $fileContent = $res->getBody()->getContents();
+
+                if ($debug !== false) {
+                    $this->debugResponse($fileContent);
+                }
+
+                $response = new $responseClass(
+                    [],
+                    $res->getStatusCode(),
+                    $res->getHeaders()
+                );
+                $response->fileAttachment = $fileContent;
+
+                return $response;
+            }
+        );
+    }
+
+    /**
      * Helper function to return the URL as determined by the sandbox configuration option.
      *
      * @return string Either the production or sandbox URL.
