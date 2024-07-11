@@ -14,9 +14,7 @@ use DTS\eBaySDK\StatusCodeTrait;
 use DTS\eBaySDK\HttpHeadersTrait;
 
 /**
- *
- * @property \DTS\eBaySDK\Marketing\Types\ErrorDetailV3[] $errors
- * @property \DTS\eBaySDK\Marketing\Types\ErrorDetailV3[] $warnings
+ * @property string $fileAttachment
  */
 class GetSpecificReportRestResponse extends \DTS\eBaySDK\Types\BaseType
 {
@@ -24,21 +22,15 @@ class GetSpecificReportRestResponse extends \DTS\eBaySDK\Types\BaseType
     use HttpHeadersTrait;
 
     /**
-     * @var array Properties belonging to objects of this class.
+     * @property string $fileAttachment
      */
     private static $propertyTypes = [
-        'errors' => [
-            'type' => 'DTS\eBaySDK\Marketing\Types\ErrorDetailV3',
-            'repeatable' => true,
+        'fileAttachment' => [
+            'type' => 'string',
+            'repeatable' => false,
             'attribute' => false,
-            'elementName' => 'errors'
+            'elementName' => 'fileAttachment'
         ],
-        'warnings' => [
-            'type' => 'DTS\eBaySDK\Marketing\Types\ErrorDetailV3',
-            'repeatable' => true,
-            'attribute' => false,
-            'elementName' => 'warnings'
-        ]
     ];
 
     /**
