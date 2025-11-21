@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 18.0.6 - 2025-11-21
+
+## Fixes
+
+Added `cancelIds` field to `\DTS\eBaySDK\PostOrder\Types\CheckCancellationEligibilityRestResponse`
+
 ## 18.0.5 - 2024-07-11
 
 ## Fixes
