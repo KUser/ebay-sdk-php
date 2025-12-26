@@ -78,6 +78,23 @@ class SellFeedService extends \DTS\eBaySDK\SellFeed\Services\SellFeedBaseService
                 ],
             ]
         ],
+        'createInventoryTask' => [
+            'method' => 'POST',
+            'resource' => 'inventory_task',
+            'responseClass' => '\DTS\eBaySDK\SellFeed\Types\CreateInventoryTaskResponse',
+            'params' => []
+        ],
+        'getInventoryTask' => [
+            'method' => 'GET',
+            'resource' => 'inventory_task/{task_id}',
+            'responseClass' => '\DTS\eBaySDK\SellFeed\Types\GetInventoryTaskResponse',
+            'params' => [
+                'task_id' => [
+                    'valid' => ['string'],
+                    'required' => true
+                ]
+            ]
+        ],
     ];
 
     /**
@@ -158,5 +175,38 @@ class SellFeedService extends \DTS\eBaySDK\SellFeed\Services\SellFeedBaseService
     public function uploadFileAsync(\DTS\eBaySDK\SellFeed\Types\UploadFileRequest $request)
     {
         return $this->callFormOperationAsync('uploadFile', $request);
+    }
+
+    /**
+     * @param \DTS\eBaySDK\SellFeed\Types\CreateInventoryTaskRequest $request
+     * @return \DTS\eBaySDK\SellFeed\Types\CreateInventoryTaskResponse
+     */
+    public function createInventoryTask(\DTS\eBaySDK\SellFeed\Types\CreateInventoryTaskRequest $request)
+    {
+        return $this->createInventoryTaskAsync($request)->wait();
+    }
+    /**
+     * @param \DTS\eBaySDK\SellFeed\Types\CreateInventoryTaskRequest $request
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function createInventoryTaskAsync(\DTS\eBaySDK\SellFeed\Types\CreateInventoryTaskRequest $request)
+    {
+        return $this->callOperationAsync('createInventoryTask', $request);
+    }
+    /**
+     * @param \DTS\eBaySDK\SellFeed\Types\GetInventoryTaskRequest $request
+     * @return \DTS\eBaySDK\SellFeed\Types\GetInventoryTaskResponse
+     */
+    public function getInventoryTask(\DTS\eBaySDK\SellFeed\Types\GetInventoryTaskRequest $request)
+    {
+        return $this->getInventoryTaskAsync($request)->wait();
+    }
+    /**
+     * @param \DTS\eBaySDK\SellFeed\Types\GetInventoryTaskRequest $request
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getInventoryTaskAsync(\DTS\eBaySDK\SellFeed\Types\GetInventoryTaskRequest $request)
+    {
+        return $this->callOperationAsync('getInventoryTask', $request);
     }
 }
