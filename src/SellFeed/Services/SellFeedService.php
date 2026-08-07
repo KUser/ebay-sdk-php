@@ -36,6 +36,17 @@ class SellFeedService extends \DTS\eBaySDK\SellFeed\Services\SellFeedBaseService
                 ],
             ]
         ],
+        'getTask' => [
+            'method' => 'GET',
+            'resource' => 'task/{task_id}',
+            'responseClass' => '\DTS\eBaySDK\SellFeed\Types\Task',
+            'params' => [
+                'task_id' => [
+                    'valid' => ['string'],
+                    'required' => true
+                ],
+            ]
+        ],
         'getTasks' => [
             'method' => 'GET',
             'resource' => 'task',
@@ -139,6 +150,24 @@ class SellFeedService extends \DTS\eBaySDK\SellFeed\Services\SellFeedBaseService
     public function getResultFileAsync(\DTS\eBaySDK\SellFeed\Types\GetResultFileRequest $request)
     {
         return $this->callFileOperationAsync('getResultFile', $request);
+    }
+
+    /**
+     * @param \DTS\eBaySDK\SellFeed\Types\GetTaskRequest $request
+     * @return \DTS\eBaySDK\SellFeed\Types\Task
+     */
+    public function getTask(\DTS\eBaySDK\SellFeed\Types\GetTaskRequest $request)
+    {
+        return $this->getTaskAsync($request)->wait();
+    }
+
+    /**
+     * @param \DTS\eBaySDK\SellFeed\Types\GetTaskRequest $request
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getTaskAsync(\DTS\eBaySDK\SellFeed\Types\GetTaskRequest $request)
+    {
+        return $this->callOperationAsync('getTask', $request);
     }
 
     /**

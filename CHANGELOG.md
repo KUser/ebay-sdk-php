@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## 18.0.8 - 2026-08-07
+
+## Fixes
+
+Added `\DTS\eBaySDK\SellFeed\Services\SellFeedService::getTask` to `\DTS\eBaySDK\SellFeed\Services\SellFeedService`
+
+## 18.0.7 - 2025-12-26
+
+## Fixes
+
+Added ability to request inventory tasks
+
 ## 18.0.6 - 2025-11-21
 
 ## Fixes
