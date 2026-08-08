@@ -1,5 +1,43 @@
 # CHANGELOG
 
+## 18.0.8 - 2026-08-07
+
+## Fixes
+
+Added `\DTS\eBaySDK\SellFeed\Services\SellFeedService::getTask` to `\DTS\eBaySDK\SellFeed\Services\SellFeedService`
+
+## 18.0.7 - 2025-12-26
+
+## Fixes
+
+Added ability to request inventory tasks
+
+## 18.0.6 - 2025-11-21
+
+## Fixes
+
+Added `cancelIds` field to `\DTS\eBaySDK\PostOrder\Types\CheckCancellationEligibilityRestResponse`
+
+## 18.0.5 - 2024-07-11
+
+## Fixes
+
+Fixed \DTS\eBaySDK\Marketing\Services\MarketingService::createReportTask
+
+Fixed \DTS\eBaySDK\Marketing\Services\MarketingService::getSpecificReport
+
+## 18.0.4 - 2023-10-27
+
+## Fixes
+
+* Fixed `\DTS\eBaySDK\PostOrder\Types\ReturnSummaryType` - added orderId
+
+## 18.0.3 - 2023-09-14
+
+## Fixes
+
+* Fixed `\DTS\eBaySDK\PostOrder\Types\ItemizedReturnShippingCostType` for PostOrder 'GetReturn' request.
+
 ## 18.0.2 - 2022-01-11
 
 ## Features

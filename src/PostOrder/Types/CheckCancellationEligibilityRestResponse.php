@@ -18,6 +18,7 @@ use DTS\eBaySDK\HttpHeadersTrait;
  * @property \DTS\eBaySDK\PostOrder\Types\Error[] $error
  * @property \DTS\eBaySDK\PostOrder\Types\ErrorDetailV3[] $errors
  * @property \DTS\eBaySDK\PostOrder\Types\ErrorDetailV3[] $warnings
+ * @property string[] $cancelIds
  */
 class CheckCancellationEligibilityRestResponse extends \DTS\eBaySDK\PostOrder\Types\OrderEligibilityResult
 {
@@ -45,7 +46,13 @@ class CheckCancellationEligibilityRestResponse extends \DTS\eBaySDK\PostOrder\Ty
             'repeatable' => true,
             'attribute' => false,
             'elementName' => 'warnings'
-        ]
+        ],
+        'cancelIds' => [
+            'type' => 'string',
+            'repeatable' => true,
+            'attribute' => false,
+            'elementName' => 'cancelIds'
+        ],
     ];
 
     /**
